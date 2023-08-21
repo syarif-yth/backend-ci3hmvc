@@ -133,10 +133,10 @@ class Migration_keys extends CI_migration
 			'id' => NULL,
 			'user_id' => '',
 			'key' => 'ci3-key',
-			'level' => '',
-			'ignore_limits' => '0',
-			'is_private_key' => '0',
-			'ip_addresses' => NULL,
+			'level' => '10',
+			'ignore_limits' => '10',
+			'is_private_key' => '1',
+			'ip_addresses' => '::1',
 			'date_created' => $created);
 		return $data;
 	}

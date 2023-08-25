@@ -16,9 +16,9 @@ class Migration_keys extends CI_migration
 		$this->tb_field = $this->set_field();
 	}
 
-	public function set_field()
+	private function set_field()
 	{
-		$field = array(
+		return $field = array(
 			'id' => $this->id(),
 			'user_id' => $this->user_id(),
 			'key' => $this->key(),
@@ -27,89 +27,79 @@ class Migration_keys extends CI_migration
 			'is_private_key' => $this->is_private_key(),
 			'ip_addresses' => $this->ip_addresses(),
 			'date_created' => $this->date_created());
-		return $field;
 	}
 
-	public function id()
+	private function id()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'INT',
 			'constraint' => 11,
 			'null' => false,
 			'auto_increment' => TRUE);
-		return $attr;
 	}
 
-	public function user_id()
+	private function user_id()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'INT',
 			'constraint' => 11,
 			'null' => false);
-		return $attr;
 	}
 
-	public function key()
+	private function key()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'VARCHAR',
 			'constraint' => 40,
 			'null' => false);
-		return $attr;
 	}
 
-	public function level()
+	private function level()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'INT',
 			'constraint' => 2,
 			'null' => false);
-		return $attr;
 	}
 
-	public function ignore_limits()
+	private function ignore_limits()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'TINYINT',
 			'constraint' => 1,
 			'null' => false,
 			'default' => 0);
-		return $attr;
 	}
 
-	public function is_private_key()
+	private function is_private_key()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'TINYINT',
 			'constraint' => 1,
 			'null' => false,
 			'default' => 0);
-		return $attr;
 	}
 
-	public function ip_addresses()
+	private function ip_addresses()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'TEXT',
 			'null' => true,
 			'default' => NULL);
-		return $attr;
 	}
 
-	public function date_created()
+	private function date_created()
 	{
-		$attr = array(
+		return $attr = array(
 			'type' => 'DATE',
 			'null' => false,);
-		return $attr;
 	}
 
 	public function up()
 	{
 
 		$exis = $this->db->table_exists($this->tb_name);
-		if(!$exis)
-		{
+		if(!$exis) {
 			$this->dbforge->add_field($this->tb_field);
 			$this->dbforge->add_key($this->tb_key, TRUE);
 			$this->dbforge->create_table($this->tb_name, FALSE, $this->tb_engine);
@@ -125,7 +115,7 @@ class Migration_keys extends CI_migration
 		$this->dbforge->drop_table($this->tb_name);
 	}
 
-	public function set_value()
+	private function set_value()
 	{
 		$time = new DateTime();
 		$created = $time->format('Y-m-d');

@@ -20,13 +20,13 @@ class Auth_token
 
 	public function __construct()
 	{
-		$this->ci =& get_instance();
-		$this->ci->load->config('jwt');
+		$ci =& get_instance();
+		$ci->load->config('jwt');
 
-		$this->key = $this->ci->config->item('jwt_key');
-		$this->algorithm = $this->ci->config->item('jwt_algorithm');
-		$this->header = $this->ci->config->item('token_header');
-		$this->expire = $this->ci->config->item('token_expire_time');
+		$this->key = $ci->config->item('jwt_key');
+		$this->algorithm = $ci->config->item('jwt_algorithm');
+		$this->header = $ci->config->item('token_header');
+		$this->expire = $ci->config->item('token_expire_time');
 	}
 
 	public function create_token($data = null)
@@ -52,7 +52,7 @@ class Auth_token
 
 	public function valid_token()
 	{
-		$head = $this->ci->input->request_headers();
+		$head = $ci->input->request_headers();
 		$exist = $this->token_exist($head);
 
 		if($exist['status'] === false) {

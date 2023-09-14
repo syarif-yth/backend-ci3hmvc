@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_keys extends CI_migration
+class Migration_rest_keys extends CI_migration
 {
 	private $tb_name;
 	private $tb_engine;
@@ -10,7 +10,7 @@ class Migration_keys extends CI_migration
 	function __construct()
 	{
 		parent::__construct();
-		$this->tb_name = 'keys';
+		$this->tb_name = 'rest_keys';
 		$this->tb_key = 'id';
 		$this->tb_engine = array('ENGINE' => 'InnoDB');
 		$this->tb_field = $this->set_field();

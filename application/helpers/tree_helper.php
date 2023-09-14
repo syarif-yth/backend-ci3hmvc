@@ -5,7 +5,7 @@ if(!function_exists('tree_view')) {
 	function tree_view($data)
 	{
 		style();
-		print('<div class="tree">');
+		print('<div id="tree">');
 		html($data);
 		print('</div>');
 		script();
@@ -17,7 +17,6 @@ if(!function_exists('tree_view')) {
 			print('<ul>');
 			foreach($data as $key => $val) {
 				if(is_array($val)) {
-					$click = "link_drop()";
 					print('<li class="link">
 						<a class="caret">
 						'.$key.' ('.count($val).')</a>');
@@ -35,30 +34,37 @@ if(!function_exists('tree_view')) {
 	{
 		?>
     <style>
-		.tree ul { 
-			line-height: 1.7em; 
-			list-style-type: none;
-			padding-inline-start: 1.5em;
+		#tree * {
+			font-size: unset !important;
+			color: unset !important;
+			padding: unset !important;
+			margin: unset !important;
 		}
-		.tree li:before {
-			content:"·";
-			font-size: 3em;
-			vertical-align: middle;
-			margin-right: 10px;
+		#tree ul { 
+			line-height: 1.7em !important; 
+			list-style-type: none !important; 
+			padding-inline-start: 1.5em !important; 
 		}
-		.tree ul li.link a {
-			font-weight: 600;
-			line-height: 2em;
-			letter-spacing: 0.1em;
+		#tree ul li:before {
+			content: "·" !important; 
+			font-size: 3em !important; 
+			vertical-align: middle !important; 
+			margin-right: 10px !important; 
 		}
-		.tree ul li.link a { text-decoration: none; }
-		.tree ul li.link a:hover { 
-			text-decoration: underline; 
-			cursor: pointer; 
+		#tree ul li.link a {
+			font-weight: 600 !important; 
+			line-height: 2em !important; 
+			letter-spacing: 0.1em !important; 
+		}
+		#tree ul li.link a { text-decoration: none !important; }
+		#tree ul li.link a:hover { 
+			text-decoration: underline !important; 
+			cursor: pointer !important; 
+			color: unset !important;
 		}
 		/* IF READY SHOW REMOVE THIS */
-		.tree .link ul { display: none }
-		.hide { display: none; }
+		/* #tree .link ul { display: none } */
+		.hide { display: none !important; }
 		.show { display: block !important; }
     </style>
     <?php
@@ -71,8 +77,8 @@ if(!function_exists('tree_view')) {
 		var i;
 		for (i = 0; i < toggler.length; i++) {
 			toggler[i].addEventListener("click", function() {
-				this.parentElement.querySelector("ul").classList.toggle("show");
-				// this.parentElement.querySelector("ul").classList.toggle("hide");
+				// this.parentElement.querySelector("ul").classList.toggle("show");
+				this.parentElement.querySelector("ul").classList.toggle("hide");
 			});
 		}
 		</script> <?php

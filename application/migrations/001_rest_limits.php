@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_logs extends CI_migration
+class Migration_rest_limits extends CI_migration
 {
 	private $tb_name;
 	private $tb_engine;
@@ -10,7 +10,7 @@ class Migration_logs extends CI_migration
 	function __construct()
 	{
 		parent::__construct();
-		$this->tb_name = 'logs';
+		$this->tb_name = 'rest_limits';
 		$this->tb_key = 'id';
 		$this->tb_engine = array('ENGINE' => 'InnoDB');
 		$this->tb_field = $this->set_field();
@@ -21,14 +21,9 @@ class Migration_logs extends CI_migration
 		return $field = array(
 			'id' => $this->id(),
 			'uri' => $this->uri(),
-			'method' => $this->method(),
-			'params' => $this->params(),
-			'api_key' => $this->api_key(),
-			'ip_address' => $this->ip_address(),
-			'time' => $this->time(),
-			'rtime' => $this->rtime(),
-			'authorized' => $this->authorized(),
-			'response_code' => $this->response_code());
+			'count' => $this->count(),
+			'hour_started' => $this->hour_started(),
+			'api_key' => $this->api_key());
 	}
 
 	private function id()
@@ -44,23 +39,24 @@ class Migration_logs extends CI_migration
 	{
 		return $attr = array(
 			'type' => 'VARCHAR',
-			'constraint' => 255,
+			'constraint' => 225,
 			'null' => false);
 	}
 
-	private function method()
+	private function count()
 	{
 		return $attr = array(
-			'type' => 'VARCHAR',
-			'constraint' => 6,
+			'type' => 'INT',
+			'constraint' => 10,
 			'null' => false);
 	}
 
-	private function params()
+	private function hour_started()
 	{
 		return $attr = array(
-			'type' => 'TEXT',
-			'null' => true);
+			'type' => 'INT',
+			'constraint' => 11,
+			'null' => false);
 	}
 
 	private function api_key()
@@ -69,45 +65,6 @@ class Migration_logs extends CI_migration
 			'type' => 'VARCHAR',
 			'constraint' => 40,
 			'null' => false);
-	}
-
-	private function ip_address()
-	{
-		return $attr = array(
-			'type' => 'VARCHAR',
-			'constraint' => 45,
-			'null' => false);
-	}
-
-	private function time()
-	{
-		return $attr = array(
-			'type' => 'INT',
-			'constraint' => 11,
-			'null' => false);
-	}
-
-	private function rtime()
-	{
-		return $attr = array(
-			'type' => 'FLOAT',
-			'default' => NULL);
-	}
-
-	private function authorized()
-	{
-		return $attr = array(
-			'type' => 'VARCHAR',
-			'constraint' => 1,
-			'null' => false);
-	}
-
-	private function response_code()
-	{
-		return $attr = array(
-			'type' => 'SMALLINT',
-			'constraint' => 3,
-			'default' => 0);
 	}
 
 	public function up()
@@ -124,6 +81,5 @@ class Migration_logs extends CI_migration
 	{
 		$this->dbforge->drop_table($this->tb_name);
 	}
-
 }
 ?>

@@ -7,6 +7,7 @@ class Migrate extends MX_Controller
   {
     parent::__construct();
     $this->load->library('migration');
+		$this->load->helper('tree_helper');
   }
 
 	private function check_db()
@@ -43,7 +44,7 @@ class Migrate extends MX_Controller
 	{
 		$version = 3;
 		$migrate = array();
-		for($v=1; $v<=$version; $v++) {
+		for($v=0; $v<=$version; $v++) {
 			if(!$this->migration->version($v)) {
 				$error = show_error($this->migration->error_string());
 				$migrate[] = array(

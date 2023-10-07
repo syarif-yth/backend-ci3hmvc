@@ -81,7 +81,7 @@
 	<h1>Migrate System</h1>
 
 	<div id="body">
-		<?php var_dump($response)?>
+		<?php tree_view($response)?>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>

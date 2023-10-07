@@ -20,6 +20,9 @@ class Welcome extends MX_Controller {
 	 */
 	public function index()
 	{
+		$this->load->database();
+		$db_name = $this->db->database;
+		$view = array('dbName' => $db_name);
 		$this->load->view('welcome_message');
 	}
 }

@@ -430,7 +430,7 @@ $config['rest_key_name'] = 'X-API-KEY';
 |       PRIMARY KEY (id)
 |   ) ;
 */
-$config['rest_enable_logging'] = true;
+$config['rest_enable_logging'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -548,7 +548,7 @@ $config['rest_logs_json_params'] = false;
 |
 | See application/controllers/api/example.php for examples
 */
-$config['rest_enable_limits'] = true;
+$config['rest_enable_limits'] = false;
 
 /*
 |--------------------------------------------------------------------------

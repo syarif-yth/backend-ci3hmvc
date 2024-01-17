@@ -26,7 +26,7 @@ class Migration_rest_keys extends CI_migration
 			'ignore_limits' => $this->ignore_limits(),
 			'is_private_key' => $this->is_private_key(),
 			'ip_addresses' => $this->ip_addresses(),
-			'date_created' => $this->date_created());
+			'date_created datetime default CURRENT_TIMESTAMP');
 	}
 
 	private function id()
@@ -88,13 +88,6 @@ class Migration_rest_keys extends CI_migration
 			'default' => NULL);
 	}
 
-	private function date_created()
-	{
-		return $attr = array(
-			'type' => 'DATE',
-			'null' => false,);
-	}
-
 	public function up()
 	{
 
@@ -117,17 +110,14 @@ class Migration_rest_keys extends CI_migration
 
 	private function set_value()
 	{
-		$time = new DateTime();
-		$created = $time->format('Y-m-d');
 		$data[] = array(
 			'id' => NULL,
-			'user_id' => '',
-			'key' => 'ci3-key',
-			'level' => '10',
-			'ignore_limits' => '10',
+			'user_id' => '1',
+			'key' => 'code3',
+			'level' => '',
+			'ignore_limits' => '',
 			'is_private_key' => '1',
-			'ip_addresses' => '::1',
-			'date_created' => $created);
+			'ip_addresses' => '::1');
 		return $data;
 	}
 }

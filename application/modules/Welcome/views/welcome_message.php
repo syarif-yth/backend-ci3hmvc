@@ -88,11 +88,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<code>application/modules/Welcome/views/welcome_message.php</code>
 
 		<p>The corresponding controller for this page is found at:</p>
-		<code>application/modules/Welcome/controllers/Welcome.php</code><br>
+		<code>application/modules/Welcome/controllers/Welcome.php</code>
 
-		<p>This code was integrated REST API, for using please migrate table the key api in <a href="migrate">Migrate</a> for Database name "<strong><i><?=$dbName?>.</i></strong>", if you dont want use key api in your system, ignore this step.</p><br>
+		<p>This code was integrated REST API, for using please migrating table the key api in <a href="migrate"><strong>Migrate</strong></a>.<br>But before migrating, make sure your database is set up. for set up you'll find it located at:</p>
+		<code>application/config/database.php</code>
 
-		<p>If you dont want use key api, edit "rest_enable_keys" to value "false" in file located at:</p>
+		<p>If you dont want use key api in your system, ignore migrating step. <br>Edit "rest_enable_keys" to value "false" in file located at:</p>
 		<code>application/config/rest.php</code>
 	</div>
 

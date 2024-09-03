@@ -1,7 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-// THIS HELPER REGISTED ON AUTOLOAD CONFIG
-
+/**
+ * ----------------------------------------------------------------------------
+ * THIS HELPER REGISTED ON AUTOLOAD CONFIG
+ * @project     Initial
+ * @author      Syarif YTH
+ * @link        http://syarif-yth.github.io
+ * ----------------------------------------------------------------------------
+ */
 if(!function_exists('set_column')) {
 	// keys = array with key / array value only
 	function set_column($array = null, $keys = false)
@@ -124,6 +130,37 @@ if(!function_exists('db_error')) {
 		return $res;
 	}
 }
+
+if(!function_exists('result_filter')) {
+	/**
+	 * removing data sensitive, param $remove can array or string
+	 * $remove='password'; or $remove=['password','email'];
+	 */
+	function result_filter($result, $remove = null)
+	{
+		if(is_array($result)) {
+			$filter = array_diff_key($result, array_flip((array) $remove));
+			return $filter;
+		} else {
+			return $result;
+		}
+	}
+}
+
+
+if(!function_exists('db_response')) {
+	function db_response($data, $code = null)
+	{
+		$res['code'] = (empty($code)) ? 200 : $code;
+		if(is_array($data)) {
+			$res['data'] = $data;
+		} else {
+			$res['message'] = $data;
+		}
+		return $res;
+	}
+}
+
 
 ?>
 

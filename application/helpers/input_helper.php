@@ -1,19 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * ----------------------------------------------------------------------------
+ * @project     Initial
+ * @author      Syarif YTH
+ * @link        http://syarif-yth.github.io
+ * ----------------------------------------------------------------------------
+ */
 if(!function_exists('create_nip')) {
 	function create_nip()
 	{
-		$time = new DateTime();
-		return $time->format('YmdHis');
+		$characters = '0123456789';
+    $random = '';
+    for($i=0; $i<10; $i++) {
+			$random .= $characters[rand(0, strlen($characters) - 1)];
+    }
+		return $random;
 	}
 }
 
 if(!function_exists('encrypt_pass')) {
 	function encrypt_pass($nip, $pass)
 	{
-		$mix = md5($nip).md5($pass);
-		return sha1($mix);
+		$options = ['cost' => 12];
+		$hashed = password_hash($nip.$pass, PASSWORD_BCRYPT, $options);
+		return $hashed;
 	}
 }
 

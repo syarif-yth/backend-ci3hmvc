@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * ----------------------------------------------------------------------------
+ * @project     Initial
+ * @author      Syarif YTH
+ * @link        http://syarif-yth.github.io
+ * ----------------------------------------------------------------------------
+ */
 if(!function_exists('now')) {
 	function now($format = null)
 	{

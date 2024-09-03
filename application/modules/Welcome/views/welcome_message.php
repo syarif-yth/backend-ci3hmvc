@@ -1,9 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+/**
+ * ----------------------------------------------------------------------------
+ * @project     Initial
+ * @author      Syarif YTH
+ * @link        http://syarif-yth.github.io
+ * ----------------------------------------------------------------------------
+ */
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	<meta name="theme-color" content="#367FA9">  
+	<meta name="author" content="syarif-yth.github.io"> 
+	<meta name="apple-mobile-web-app-title" content="Initial">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
 	<title>Welcome to CodeIgniter</title>
 
 	<style type="text/css">

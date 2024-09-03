@@ -1,5 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * ----------------------------------------------------------------------------
+ * @project     Initial
+ * @author      Syarif YTH
+ * @link        http://syarif-yth.github.io
+ * ----------------------------------------------------------------------------
+ */
 require APPPATH . '/third_party/JWT/JWT.php';
 require APPPATH . '/third_party/JWT/ExpiredException.php';
 require APPPATH . '/third_party/JWT/BeforeValidException.php';
